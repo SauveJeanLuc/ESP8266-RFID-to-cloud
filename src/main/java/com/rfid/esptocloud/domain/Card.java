@@ -18,7 +18,7 @@ public class Card {
 
     @Id
     @Column(name = "card_id")
-    public Long Id;
+    public String Id;
     @Column(name = "card_owner_name")
     public String cardOwnerName;
     @Column(name = "initial_balance")

@@ -23,7 +23,7 @@ public class CardController {
     }
 
     @GetMapping("/card/{id}")
-    public Card getCardById(@PathVariable Long id){
+    public Card getCardById(@PathVariable String id){
         return cardRepository.findById(id)
                 .orElseThrow(()->new HttpClientErrorException(HttpStatus.NOT_FOUND));
     }
@@ -34,7 +34,7 @@ public class CardController {
     }
 
     @PutMapping("/card/{id}")
-    public ResponseEntity<Card> updateCardById(@PathVariable Long id, @RequestBody Card card){
+    public ResponseEntity<Card> updateCardById(@PathVariable String id, @RequestBody Card card){
         Optional<Card> CardData = cardRepository.findById(id);
 
         if( CardData.isPresent() ){
@@ -52,7 +52,7 @@ public class CardController {
     }
 
     @DeleteMapping("/customer/{id}")
-    public void deleteCardById(@PathVariable Long id){
+    public void deleteCardById(@PathVariable String id){
         cardRepository.deleteById(id);
     }
 }
