@@ -28,4 +28,6 @@ public class Card {
     @Column(name = "transport_fare")
     public Float transportFare;
 
+
+
 }

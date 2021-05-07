@@ -11,28 +11,33 @@ import org.springframework.web.client.HttpClientErrorException;
 import java.util.List;
 import java.util.Optional;
 
+
 @RestController
 public class CardController {
 
     @Autowired
     private CardRepository cardRepository;
 
+    @CrossOrigin(origins = "http://localhost:8080")
     @PostMapping("/card")
     public Card addCardDetails(@RequestBody Card card){
         return  cardRepository.save(card);
     }
 
+    @CrossOrigin(origins = "http://localhost:8080")
     @GetMapping("/card/{id}")
     public Card getCardById(@PathVariable String id){
         return cardRepository.findById(id)
                 .orElseThrow(()->new HttpClientErrorException(HttpStatus.NOT_FOUND));
     }
 
+    @CrossOrigin(origins = "http://localhost:8080")
     @GetMapping("/card")
     public List<Card> getALlCards(){
         return cardRepository.findAll();
     }
 
+    @CrossOrigin(origins = "http://localhost:8080")
     @PutMapping("/card/{id}")
     public ResponseEntity<Card> updateCardById(@PathVariable String id, @RequestBody Card card){
         Optional<Card> CardData = cardRepository.findById(id);
@@ -51,8 +56,11 @@ public class CardController {
         }
     }
 
-    @DeleteMapping("/customer/{id}")
+    @CrossOrigin(origins = "http://localhost:8080")
+    @DeleteMapping("/card/{id}")
     public void deleteCardById(@PathVariable String id){
         cardRepository.deleteById(id);
     }
+
+
 }
