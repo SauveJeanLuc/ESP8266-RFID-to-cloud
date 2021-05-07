@@ -17,15 +17,15 @@ import javax.persistence.Table;
 public class Card {
 
     @Id
-    @Column("card_id")
+    @Column(name = "card_id")
     public Long Id;
-    @Column("card_owner_name")
+    @Column(name = "card_owner_name")
     public String cardOwnerName;
-    @Column("initial_balance")
+    @Column(name = "initial_balance")
     public Float initialBalance;
-    @Column("new_balance")
+    @Column(name = "new_balance")
     public Float newBalance;
-    @Column("transport_fare")
+    @Column(name = "transport_fare")
     public Float transportFare;
 
 }
