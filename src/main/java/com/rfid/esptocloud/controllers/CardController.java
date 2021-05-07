@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.HttpClientErrorException;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -25,6 +26,11 @@ public class CardController {
     public Card getCardById(@PathVariable Long id){
         return cardRepository.findById(id)
                 .orElseThrow(()->new HttpClientErrorException(HttpStatus.NOT_FOUND));
+    }
+
+    @GetMapping("/card")
+    public List<Card> getALlCards(){
+        return cardRepository.findAll();
     }
 
     @PutMapping("/card/{id}")
