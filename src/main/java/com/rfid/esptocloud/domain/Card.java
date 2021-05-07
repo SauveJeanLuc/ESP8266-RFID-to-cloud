@@ -26,6 +26,6 @@ public class Card {
     @Column("new_balance")
     public Float newBalance;
     @Column("transport_fare")
-    public Integer transportFare;
+    public Float transportFare;
 
 }
